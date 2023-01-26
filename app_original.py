@@ -6,9 +6,12 @@ import os
 
 # 사이드바 만드는 방법 1: st.sidebar.요소명 
 # Using object notation
-series_select = st.sidebar.selectbox(
-    "좋아하는 시리즈를 선택하세요",
-    ("SlAMDUNK", "DAREDEVIL", "이번생은처음이라")
+# 사이드바에 셀렉트박스(혹은 라디오버튼 등등 뭐라도 좋습니다)로 
+# 각 드라마 혹은 애니메이션의 제목 세개를 
+# 선택할 수 있도록 해주세요
+drama_select = st.sidebar.selectbox(
+    '좋아하는 드라마를 선택하세요',
+    ['내 이름은 김삼순', '눈이 부시게', '언젠가 이 사랑을 떠올리면 울어버릴 것 같아']
 )
 
 # 사이드바 만드는 방법 2: with st.sidebar:
@@ -24,9 +27,13 @@ st.sidebar.write('사이드바입니다')
 
 st.sidebar.image('./jjanggu.jpeg')
 
+
+# 본문
 folder = './data/'
-image_files = ['슬램덩크.jpeg','데어데블.png','이번생.jpeg']
-st.write('선택한 시리즈:',series_select)
+image_files = ['samsun.jpg', 'noon.jpg', 'unjenga.png']
+
+# 사이드바에 있는 드라마 리스트의 0, 1, 2 순서에 맞춰서 텍스트 데이터가 호출된다
+st.write('선택한 드라마:', drama_select)
 
 
 image_path = os.path.dirname(os.path.abspath(__file__)) + "/jjanggu.jpeg"
@@ -69,7 +76,7 @@ with col1:
 with col2:
     st.header('2. AUDIO')
     # 저작권 무료 음악: https://studio.youtube.com/channel/UCjMXxVpbAqejiHiMh9nlPIg/music
-    st.audio('./Emotional Mess - Amy Lynn & the Honey Men.mp3')
+    st.audio('.\Emotional Mess - Amy Lynn & the Honey Men.mp3')
 
 with col3:
     st.header('3. HTML')
